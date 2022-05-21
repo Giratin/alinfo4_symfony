@@ -1,0 +1,46 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+   <h1 style="text-align: center"> {{ "Liste des " ~ "formations" }} </h1>
+    <table border="1" style="width : max-content; display : block; margin: auto">
+        <thead>
+            <th>Ref</th>
+            <th>Titre</th>
+            <th>Date debut</th>
+            <th>Date fin</th>
+            <th>Nombre participants</th>
+            <th>Action</th>
+        </thead>
+        <tbody>
+            {% for item in formations %}
+                <tr>
+                    <td> {{ item.ref }} </td>
+                    <td> {{ item.Titre | upper }} </td>
+                    <td> {{ item.date_debut | date('Y-m-d') }} </td>
+                    <td> {{ item.date_fin }} </td>
+                    <td> {{ item.nb_participants }} </td>
+                    <td>
+                        {% if item.nb_participants == 0 %}
+                            <a href="/club/get/{{ item.Titre }}">participer</a>
+                            <a href="{{ path('app_club_name', { nom: item.Titre }) }}">participer 2 </a>
+                        {% endif %}
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    {% if formations is empty %}
+        <p> Pas de formations </p>
+    {% else %}
+        <p>Il en existe de formations</p>
+    {% endif %}
+
+    {% if nom is defined %}
+        <p> nom is defined </p>
+    {% else %}
+        <p>nom is not defined</p>
+    {% endif %}
+
+
+{% endblock %}
