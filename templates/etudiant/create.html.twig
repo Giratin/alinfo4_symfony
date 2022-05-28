@@ -1,0 +1,36 @@
+{% extends 'base.html.twig' %}
+
+
+{% block body %}
+  <div class="container">
+      <div class="row justify-content-center">
+          <div class="col-6">
+              <h2 class="h2 my-2 text-center"> Create New <b>'Etudiant'</b> </h2>
+              {{ form_start(create_form) }}
+                  <div class="form-group mb-1">
+                      {{ form_label(create_form.FirstName, "First Name") }}
+                      {{ form_widget(create_form.FirstName, { 'attr' : { 'placeholder' : 'test placeholder', 'class' : 'form-control' } }) }}
+                  </div>
+              <div class="form-group mb-1">
+                  {{ form_label(create_form.LastName, "Last Name") }}
+                  {{ form_widget(create_form.LastName, { 'attr' : { 'placeholder' : 'test placeholder', 'class' : 'form-control' } }) }}
+              </div>
+              <div class="form-group mb-1">
+                  {{ form_label(create_form.Classe, "Classe") }}
+                  {{ form_widget(create_form.Classe, { 'attr' : { 'placeholder' : 'test placeholder', 'class' : 'form-control' } }) }}
+              </div>
+              <div class="form-group mb-1">
+                  {{ form_label(create_form.Age, "Age") }}
+                  {{ form_widget(create_form.Age, { 'attr' : { 'placeholder' : 'test placeholder', 'class' : 'form-control' } }) }}
+              </div>
+              <div style="display: flex">
+                  <div class="mx-auto"></div>
+                  <div>
+                      {{ form_widget(create_form.Save, { 'attr' : {'class' : 'btn btn-success' } }) }}
+                  </div>
+              </div>
+              {{ form_end(create_form) }}
+          </div>
+      </div>
+  </div>
+{% endblock %}

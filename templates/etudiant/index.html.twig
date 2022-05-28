@@ -1,0 +1,32 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello EtudiantController!{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-8">
+                <table class="table">
+                    <thead>
+                        <th> Id </th>
+                        <th> First Name </th>
+                        <th> Last Name </th>
+                        <th> Classe </th>
+                        <th> Age </th>
+                    </thead>
+                    <tbody>
+                        {% for item in students %}
+                            <tr>
+                                <td> {{ item.id}} </td>
+                                <td> {{ item.FirstName | upper }} </td>
+                                <td> {{ item.LastName}} </td>
+                                <td> {{ item.Classe}} </td>
+                                <td> {{ item.Age}} </td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+{% endblock %}
