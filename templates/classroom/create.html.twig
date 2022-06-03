@@ -1,0 +1,21 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-4">
+                {% if isUpdate is defined %}
+                    <h2 class="text-center mb-2"> Mettre à jour </h2>
+                    {{ form_start(form_create) }}
+                        {{ form_widget(form_create.Name, { 'label' : 'Nom' }) }}
+                        {{ form_widget(form_create.Save, { 'label' : 'update' }) }}
+                    {{ form_end(form_create) }}
+                {% else %}
+                    <h2 class="text-center mb-2"> Créer </h2>
+                    {{ form(form_create) }}
+                {% endif %}
+
+            </div>
+        </div>
+    </div>
+{% endblock %}
